@@ -1,3 +1,8 @@
+body {
+    font-family: SFUIDisplay, Roboto, Helvetica, Arial, san-serif, ‘Apple SD Gothic Neo’;
+    font-size : 48px;
+}
+
 /******************************************************************************/
 /********************************** CONTROLS **********************************/
 /******************************************************************************/
@@ -139,13 +144,13 @@
 
 #input::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.5);
-  font-family: SFUIDisplay;
+  /*font-family: SFUIDisplay;*/
 }
 
 #input {
   font-size: 108px;
   font-weight: bold;
-  font-family: SFUIDisplay;
+  /*font-family: SFUIDisplay;*/
   width: 800px;
   background-color: #5d5b7e;
   border: 0;
@@ -184,7 +189,7 @@
 #todoList > li {
   list-style-type: none;
   font-size: 72px;
-  font-family: AppleSDGothicNeo;
+  /*font-family: AppleSDGothicNeo;*/
   line-height: 250%;
   width: 100%;
 }
