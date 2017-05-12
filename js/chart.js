@@ -2,6 +2,8 @@ window.addEventListener('letsee.load', function() {
   // select chart element by id;
   var element = document.getElementById("chart-canvas");
 
+  Chart.defaults.global.defaultFontSize = 48;
+
   // initialize the chart
   var chart = new Chart(element, {
     type: 'bar',
