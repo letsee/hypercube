@@ -1,101 +1,95 @@
 window.addEventListener('letsee.load', function() {
   // Create an entity
-  var entity = new Entity('https://d.letsee.io/EMdTOnQqEjfW');
+  var entity = letsee.getEntity('https://d.letsee.io/EMdTOnQqEjfW');
   var cubeSize = 1200;
   var margin = cubeSize / 2;
 
-  // Load entity data
-  entity.load().then(function(e) {
-    var cube = new Renderable();
-    var faces = document.getElementsByClassName('cube-face');
+  var cube = new Object3D();
+  var faces = document.getElementsByClassName('cube-face');
 
-    // Iterate each face of the cube
-    for (var i = 0; i < faces.length; i++) {
-      var cubeFace = new DOMRenderable(faces[i]);
+  // Iterate each face of the cube
+  for (var i = 0; i < faces.length; i++) {
+    var cubeFace = new DOMRenderable(faces[i]);
 
-      switch (i) {
-        case 0: // video
-          cubeFace.rotateY(Math.PI / 2);
-          cubeFace.position.x = margin;
-          break;
-        case 1: // map
-          cubeFace.rotateY(-Math.PI / 2);
-          cubeFace.position.x = -margin;
-          break;
-        case 2: // slider
-          cubeFace.rotateX(-Math.PI / 2);
-          cubeFace.position.y = margin;
-          break;
-        case 3: // svg
-          cubeFace.position.z = margin;
-          break;
-        case 4: // chart
-          cubeFace.rotateX(-Math.PI);
-          cubeFace.position.z = -margin;
-          break;
-        case 5: // todo
-          cubeFace.rotateX(Math.PI / 2);
-          cubeFace.position.y = -margin;
-          break;
-        default:
-          break;
-      }
-
-      cube.add(cubeFace);
+    switch (i) {
+      case 0: // video
+        cubeFace.rotateY(Math.PI / 2);
+        cubeFace.position.x = margin;
+        break;
+      case 1: // map
+        cubeFace.rotateY(-Math.PI / 2);
+        cubeFace.position.x = -margin;
+        break;
+      case 2: // slider
+        cubeFace.rotateX(-Math.PI / 2);
+        cubeFace.position.y = margin;
+        break;
+      case 3: // svg
+        cubeFace.position.z = margin;
+        break;
+      case 4: // chart
+        cubeFace.rotateX(-Math.PI);
+        cubeFace.position.z = -margin;
+        break;
+      case 5: // todo
+        cubeFace.rotateX(Math.PI / 2);
+        cubeFace.position.y = -margin;
+        break;
+      default:
+        break;
     }
 
-    // Add cube to the entity
-    entity.addRenderable(cube);
+    cube.add(cubeFace);
+  }
 
-    // Cube rotation controls
-    document.querySelector('.control-btn.left').addEventListener('click', function() {
-      // rotate 90 degrees counter-clockwise around z axis
-      cube.rotateZ(Math.PI / 2);
-    });
+  // Add cube to the entity
+  entity.addRenderable(cube);
 
-    document.querySelector('.control-btn.right').addEventListener('click', function() {
-      // rotate 90 degrees clockwise around z axis
-      cube.rotateZ(-Math.PI / 2);
-    });
+  // Cube rotation controls
+  document.querySelector('.control-btn.left').addEventListener('click', function() {
+    // rotate 90 degrees counter-clockwise around z axis
+    cube.rotateZ(Math.PI / 2);
+  });
 
-    document.querySelector('.control-btn.reset').addEventListener('click', function() {
-      // reset the cube's rotation
-      cube.quaternion = new Quaternion();
-    });
+  document.querySelector('.control-btn.right').addEventListener('click', function() {
+    // rotate 90 degrees clockwise around z axis
+    cube.rotateZ(-Math.PI / 2);
+  });
 
-    // pinch zoom and trackball control
-    var newDist = 0;
-    var scale = 1;
-    var scaleIncrement = 0.04;
-    var trackball = new ObjectTrackball(cube, {speed: 2});
-    trackball.load();
+  document.querySelector('.control-btn.reset').addEventListener('click', function() {
+    // reset the cube's rotation
+    cube.quaternion = new Quaternion();
+  });
 
-    // increment or decrement cube scale
-    function cubeScale(value) {
-      if (scale <= 0.3 && value < 0) {
-        return;
-      }
+  // pinch zoom and trackball control
+  var newDist = 0;
+  var scale = 1;
+  var scaleIncrement = 0.04;
+  var trackball = new ObjectTrackball(cube, {speed: 2});
+  trackball.load();
 
-      scale += value;
-      cube.scale.setScalar(scale);
+  // increment or decrement cube scale
+  function cubeScale(value) {
+    if (scale <= 0.3 && value < 0) {
+      return;
     }
 
-    document.addEventListener('touchmove', function() {
-      if (trackball.isPinch()) {
-        var oldDist = trackball.getPinchDist();
+    scale += value;
+    cube.scale.setScalar(scale);
+  }
 
-        // on pinch zoom in, increment cube scale
-        if (newDist < oldDist) {
-          cubeScale(scaleIncrement);
-        } else { // on pinch zoom out, decrement cube scale
-          cubeScale(-scaleIncrement);
-        }
+  document.addEventListener('touchmove', function() {
+    if (trackball.isPinch()) {
+      var oldDist = trackball.getPinchDist();
 
-        newDist = trackball.getPinchDist();
+      // on pinch zoom in, increment cube scale
+      if (newDist < oldDist) {
+        cubeScale(scaleIncrement);
+      } else { // on pinch zoom out, decrement cube scale
+        cubeScale(-scaleIncrement);
       }
-    });
-  }).catch(function(error) {
-    // in case of loading error, do something
-    console.log(error);
+
+      newDist = trackball.getPinchDist();
+    }
   });
 });
