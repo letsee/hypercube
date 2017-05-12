@@ -62,6 +62,38 @@ window.addEventListener('letsee.load', function() {
       // reset the cube's rotation
       cube.quaternion = new Quaternion();
     });
+
+    // pinch zoom and trackball control
+    var newDist = 0;
+    var scale = 1;
+    var scaleIncrement = 0.04;
+    var trackball = new ObjectTrackball(renderable, {speed: 2});
+    trackball.load();
+
+    // increment or decrement cube scale
+    function cubeScale(value) {
+      if (scale <= 0.3 && value < 0) {
+        return;
+      }
+
+      scale += value;
+      renderable.scale.setScalar(scale);
+    }
+
+    document.addEventListener('touchmove', function() {
+      if (trackball.isPinch()) {
+        var oldDist = trackball.getPinchDist();
+
+        // on pinch zoom in, increment cube scale
+        if (newDist < oldDist) {
+          cubeScale(scaleIncrement);
+        } else { // on pinch zoom out, decrement cube scale
+          cubeScale(-scaleIncrement);
+        }
+
+        newDist = trackball.getPinchDist();
+      }
+    });
   }).catch(function(error) {
     // in case of loading error, do something
     console.log(error);
