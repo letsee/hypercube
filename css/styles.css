@@ -1,0 +1,250 @@
+/******************************************************************************/
+/********************************** CONTROLS **********************************/
+/******************************************************************************/
+.control-btn {
+  background-color: #ffffff;
+  box-shadow: 0 0 11px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 100%;
+  position: absolute;
+  bottom: 0;
+  border: solid 2px #fff;
+}
+
+/******************************************************************************/
+/*********************************** SLIDER ***********************************/
+/******************************************************************************/
+.slider-left, .slider-right {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  top: 43%;
+}
+
+.slider-left {
+  left: 0;
+}
+
+.slider-right {
+  right: 0;
+}
+
+/******************************************************************************/
+/************************************ SVG *************************************/
+/******************************************************************************/
+#html-logo {
+  width: 572px;
+  height: 800px;
+  margin-top: 200px;
+  margin-left: 300px;
+  /*animation-name: spin;
+  animation-duration: 7s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;*/
+  /*-webkit-animation-name: spin;
+  -webkit-animation-duration: 7000ms;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;*/
+}
+
+@keyframes spin {
+  from {
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+  to {
+    -webkit-transform: rotateY(360deg);
+    transform: rotateY(360deg);
+  }
+}
+.control-color-picker-wrapper {
+  position: absolute;
+  right: 1.5%;
+  bottom: 5.5%;
+  width: 50px;
+  height: 261px;
+  display: none;
+}
+
+.control-btn.color-picker-item {
+  margin: auto;
+  margin-bottom: 35%;
+}
+
+.control-color-picker-close {
+  margin-left: 25%;
+}
+
+.control-btn.color-picker-item, .control-color-picker-close {
+  position: relative;
+  width: 26px;
+  height: 26px;
+}
+
+.control-btn.color-picker-item.black {
+  background: #303030;
+}
+
+.control-btn.color-picker-item.blue {
+  background: #008cff;
+}
+
+.control-btn.color-picker-item.purple {
+  background: #b207f0;
+}
+
+.control-btn.color-picker-item.green {
+  background: #00ce36;
+}
+
+.control-btn.color-picker-item.orange {
+  background: #e44d26;
+}
+
+.picker-btn {
+  position: absolute;
+  bottom: 40px;
+  right: 20px;
+  width: 220px;
+  height: 220px;
+}
+
+.picker-btn svg {
+  width: 100%;
+  height: 100%;
+}
+
+/******************************************************************************/
+/*********************************** CHART ************************************/
+/******************************************************************************/
+#chart h1 {
+  text-align: center;
+  font-size: 170.66667px;
+}
+
+#chart h2 {
+  font-family: SFUIDisplay;
+  font-size: 128px;
+  font-weight: bold;
+  border-radius: 24px;
+}
+
+/******************************************************************************/
+/************************************ TODO ************************************/
+/******************************************************************************/
+#todo {
+  background-color: #5d5b7e;
+  color: #FFF;
+  font-family: 'Noto Sans Korean', sans-serif;
+}
+
+#input::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-family: SFUIDisplay;
+}
+
+#input {
+  font-size: 108px;
+  font-weight: bold;
+  font-family: SFUIDisplay;
+  width: 800px;
+  background-color: #5d5b7e;
+  border: 0;
+  color: #fff;
+  outline: none;
+}
+
+.todo-button-wrapper {
+  padding: 80px 80px 0 80px;
+  -webkit-appearance: none;
+  border-bottom: 4px solid rgba(255, 255, 255, 0.3);
+}
+
+#add-todo {
+  background-color: #5d5b7e;
+  border: 0;
+  color: #fff;
+  text-decoration: none;
+  width: 128px;
+  height: 128px;
+  float: right;
+  text-align: right;
+  font-size: 96px;
+  padding: 0;
+  outline: none;
+  border-radius: 20px;
+}
+
+#todoList {
+  padding: 8px 100px 88px 100px;
+  height: 756px;
+  overflow-y: scroll;
+  border-radius: 40px;
+}
+
+#todoList > li {
+  list-style-type: none;
+  font-size: 72px;
+  font-family: AppleSDGothicNeo;
+  line-height: 250%;
+  width: 100%;
+}
+
+#todoList > li img {
+  float: right;
+  width: 128px;
+  height: 128px;
+}
+
+/******************************************************************************/
+/************************************ CUBE ************************************/
+/******************************************************************************/
+.cube-face {
+  position: absolute;
+  width: 1200px;
+  height: 1200px;
+  -webkit-backface-visibility: hidden;
+  background: #fff;
+}
+
+iframe, img, canvas {
+  width: 100%;
+  height: 100%;
+}
+
+video {
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+}
+
+/******************************************************************************/
+/***************************** ROTATION CONTROLS ******************************/
+/******************************************************************************/
+.control-btn.left, .control-btn.right {
+  width: 40px;
+  height: 40px;
+  bottom: 5.5%;
+}
+
+.control-btn.left {
+  left: 18%;
+}
+
+.control-btn.right {
+  right: 20%;
+}
+
+.control-btn.reset {
+  width: 60px;
+  height: 60px;
+  left: 40%;
+  right: 50%;
+  bottom: 3.5%;
+}
+
+.control-btn.reset img {
+  width: 50px;
+  height: 50px;
+  margin-left: 6px;
+  margin-top: 6px;
+}
