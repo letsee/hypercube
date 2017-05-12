@@ -13,7 +13,7 @@ window.addEventListener('letsee.load', function() {
     for (var i = 0; i < faces.length; i++) {
       var cubeFace = new DOMRenderable(faces[i]);
 
-      switch (index) {
+      switch (i) {
         case 0: // video
           cubeFace.rotateY(Math.PI / 2);
           cubeFace.position.x = margin;
@@ -55,7 +55,7 @@ window.addEventListener('letsee.load', function() {
 
     document.querySelector('.control-btn.right').addEventListener('click', function() {
       // rotate 90 degrees clockwise around z axis
-      cubbe.rotateZ(-Math.PI / 2);
+      cube.rotateZ(-Math.PI / 2);
     });
 
     document.querySelector('.control-btn.reset').addEventListener('click', function() {
