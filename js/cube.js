@@ -67,7 +67,7 @@ window.addEventListener('letsee.load', function() {
     var newDist = 0;
     var scale = 1;
     var scaleIncrement = 0.04;
-    var trackball = new ObjectTrackball(renderable, {speed: 2});
+    var trackball = new ObjectTrackball(cube, {speed: 2});
     trackball.load();
 
     // increment or decrement cube scale
@@ -77,7 +77,7 @@ window.addEventListener('letsee.load', function() {
       }
 
       scale += value;
-      renderable.scale.setScalar(scale);
+      cube.scale.setScalar(scale);
     }
 
     document.addEventListener('touchmove', function() {
