@@ -1,5 +1,5 @@
 # Hypercube
-This is an example of how to develop a 3D cube with 6 HTML elements as its faces. Visit http://developers.letsee.io/ to read detailed instructions on each step.
+This is an example of how to develop a 3D cube with 6 HTML elements as its faces. Visit https://developers.letsee.io/#!/document to read detailed instructions on each step.
 
 To clone the example, run the following:
 ```
